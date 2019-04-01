@@ -1,0 +1,37 @@
+{
+  "name": "duckFeed",
+  "version": "1.0.0",
+  "description": "basic serverless dynamo node react redux app",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "4.0.0",
+    "gulp-exec": "3.0.2",
+    "gulp-sequence": "1.0.0",
+    "gulp-util": "3.0.7",
+    "i": "0.3.5",
+    "webpack": "4.19.1"
+  },
+  "scripts": {
+    "preinstall": "cd web && npm install",
+    "postinstall": "cd api && cd duckFeed && npm install",
+    "db-setup": "cd api && cd duckFeed && sls dynamodb install",
+    "db-remove": "cd api && cd duckFeed && sls dynamodb remove",
+    "predeploy-s3": "cd web && npm run build",
+    "deploy-s3": "cd web && aws s3 --profile default sync ./build/ s3://duckfeed-prod-serverlessdeploymentbucket-1u9c7kvs4is54 --region us-east-1",
+    "app": "gulp serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourGuy/duck-feed"
+  },
+  "keywords": [
+    "serverless",
+    "aws",
+    "ducks",
+    "react"
+  ],
+  "author": "Guy Segal",
+  "license": "MIT",
+  "homepage": "https://github.com/yourGuy/duck-feed",
+  "devDependencies": {}
+}
