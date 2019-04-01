@@ -121,8 +121,9 @@ const formNormalizer = {
 
 class FeedForm extends React.Component {
     render() {
-        const {isScheduale, onSubmit, handleSubmit} = this.props
+        const {isScheduale, onSubmit, handleSubmit, error} = this.props
         return <div>
+            {error && <span className={'text-danger'}>{error}</span>}
             <Field
                 name={'feedTime'}
                 label={'Feed Time'}
